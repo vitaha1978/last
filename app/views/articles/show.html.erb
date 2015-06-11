@@ -1,0 +1,5 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.content %></p>
+
+<%= link_to "Редагувати статтю", edit_article_path(@article) %><br>
+<%= link_to"Видалити статтю", article_path(@article), method: :delete, data: { confirm: "Адмін, ти впевнений, що хочеш цього?" } %>

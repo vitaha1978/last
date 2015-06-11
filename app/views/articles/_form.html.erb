@@ -1,0 +1,31 @@
+<%= form_for @article do |f| %>
+    <% if @article.errors.any? %>
+        <div class="massege error">
+            <span class="bullets b-error"></span>
+            Не вдалося зберегти статтю.... присутні неточності в кількості: <%= @article.errors.count %> шт.
+            <ul class="liststyle">
+                <li>
+                    <% @article.errors.full_messages.each do |msg| %>
+                        <i class="icon-ok-1 sz-xs"></i>
+                        <%= msg %>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+    <% end %>
+    
+    <%= f.label :title, "Назва статті" %><br>
+    <%= f.text_field :title %>
+    
+    <br>
+    <br>
+    
+    <%= f.label :content, "Контент" %><br>
+    <%= f.text_area :content %>
+    
+    <br>
+    <br>
+    
+    <%= f.submit "Відправити" %>
+    
+<% end %>
